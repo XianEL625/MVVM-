@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <title>表格数据排序</title>
+  </head>
+  <body>
+    <table id="myTable">
+      <tr>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>操作</th>
+      </tr>
+    </table>
+    <input type="text" id="nameInput" placeholder="姓名" />
+    <input type="number" id="ageInput" placeholder="年龄" />
+    <button id="addRow"class="add-button">添加数据</button>
+    <script src="./表格操作.js"></script>
+  </body>
+</html>
+<style>
+  table {
+    width: 50%;
+    margin-top: 20px;
+    border: 1px solid #ddd;
+  }
+
+  th {
+    background-color: #dfeefd;
+  }
+
+  th,
+  td {
+    padding: 8px;
+    text-align: left;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .add-button{
+    margin-top: 20px;
+  }
+</style>
