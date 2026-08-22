@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | 吊脚楼</title>
+  </head>
+  <body style="text-align: center; padding: 0; border: 0; margin: 0;">
+    <canvas id="unity-canvas" width=960 height=600 tabindex="-1" style="width: 960px; height: 600px; background: #231F20"></canvas>
+    <!-- 加载进度文本 -->
+    <div id="loading-text" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:white;font-size:20px;">
+      吊脚楼漫游加载中 0%
+    </div>
+    <script src="Build/build.loader.js"></script>
+    <script>
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        // Mobile device style: fill the whole browser client area with the game canvas:
+        var meta = document.createElement('meta');
+        meta.name = 'viewport';
+        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+        document.getElementsByTagName('head')[0].appendChild(meta);
+
+        var canvas = document.querySelector("#unity-canvas");
+        canvas.style.width = "100%";
+        canvas.style.height = "100%";
+        canvas.style.position = "fixed";
+
+        document.body.style.textAlign = "left";
+      }
+
+      // 加载进度逻辑
+      const loadingText = document.getElementById("loading-text")
+      createUnityInstance(document.querySelector("#unity-canvas"), {
+        dataUrl: "Build/build.data",
+        frameworkUrl: "Build/build.framework.js",
+        codeUrl: "Build/build.wasm",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "DefaultCompany",
+        productName: "吊脚楼",
+        productVersion: "0.1",
+        matchWebGLToCanvasSize: false,
+        devicePixelRatio: 1
+      }, (progress) => {
+        loadingText.innerText = "吊脚楼漫游加载中 " + Math.round(progress * 100) + "%"
+      }).then(() => {
+        loadingText.style.display = "none"
+      }).catch((err) => {
+        loadingText.innerText = "加载失败，请刷新重试"
+        console.error("Unity加载失败：", err)
+      });
+    </script>
+  </body>
+</html>

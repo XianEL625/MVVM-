@@ -1,0 +1,21 @@
+{
+  "name": "threejs_demo",
+  "version": "1.0.0",
+  "source": "src/index.html",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@tweenjs/tween.js": "^25.0.0",
+    "three": "^0.175.0"
+  },
+  "devDependencies": {
+    "buffer": "^5.5.0||^6.0.0",
+    "parcel": "^2.14.4"
+  }
+}

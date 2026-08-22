@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.gzu.springbootdemo2.mapper.EmployeeMapper">
+    <!-- 查询员工及其参与的项目 -->
+    <select id="selectPageVo" resultType="com.gzu.springbootdemo2.entity.Employee">
+        SELECT * FROM employees
+    </select>
+
+    <select id="selectEmployeesByFirstName" resultType="com.gzu.springbootdemo2.entity.Employee">
+    SELECT * FROM employees
+    WHERE first_name LIKE '%${firstName}%'
+    </select>
+
+    <select id="selectAll" resultType="com.gzu.springbootdemo2.entity.Employee">
+        SELECT * FROM employees
+    </select>
+
+    <update id="updateById" parameterType="com.gzu.springbootdemo2.entity.Employee">
+        update employees set first_name=#{firstName},last_name=#{lastName},email=#{email},phone_number=#{phoneNumber},salary=#{salary},dept_id=#{deptId},job_title=#{jobTitle},hire_date=#{hireDate}
+        where emp_id=#{empId}
+    </update>
+
+
+    <delete id="deleteById" parameterType="com.gzu.springbootdemo2.entity.Employee">
+        delete from employees
+        where emp_id=#{id};
+    </delete>
+
+    <insert id="insert" parameterType="com.gzu.springbootdemo2.entity.Employee" >
+        insert into employees(first_name,last_name,email,phone_number,salary,dept_id,job_title,hire_date)
+        values(#{firstName},#{lastName},#{email},#{phoneNumber},#{salary},#{deptId},#{jobTitle},#{hireDate})
+    </insert>
+
+
+
+</mapper>

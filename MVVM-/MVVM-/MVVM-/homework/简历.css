@@ -1,0 +1,27 @@
+.header{
+    width: 100%;
+}
+.photo{
+    width: 20%;
+    float:left;
+    height:200px;
+}
+.hearder-center{
+    text-align: center;
+    width:80%;
+    float:left;
+    height:200px;
+}
+.style1{
+    color:dimgray;
+}
+.style2{
+    color:cornflowerblue;
+   }
+.style3-1{
+    float:left;
+}
+.style3-2{
+    float:right;
+    color:dimgray;
+}

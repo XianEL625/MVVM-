@@ -1,0 +1,3 @@
+ body {  
+    background-color: lightgray; /* 如果这个样式有效，说明 global.css 被加载 */  
+} 
